@@ -99,7 +99,12 @@ require 'header.php';
             </div>
         </main>
     </div>
-<?php    
+
+ <script src="js\JsBarcode.all.min.js"></script>
+ <script src="js\jquery.PrintArea.js"></script>
+ <script src="scripts/articulo.js"></script>
+
+ <?php    
 }
 require 'footer.php';
 ?>

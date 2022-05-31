@@ -1,5 +1,5 @@
 <?php
-   require "conexion.php";
+   require "global/conexion.php";
    session_start();
    if($_POST){ 
        //Recibimos el usuario y password 
@@ -20,7 +20,7 @@
                $_SESSION['nombre']=$row['nombre'];
                $_SESSION['tipo_usuario']=$row['tipo_usuario'];
 
-               header("Location: principal.php");
+               header("Location: vistas/principal.php");
 
            }else{
                echo "CONTRASEÑA INCORRECTA";
@@ -42,7 +42,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login - SB Admin</title>
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="public/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-primary">
@@ -66,16 +66,13 @@
                                             </div>
                                             <div class="form-check mb-3">
                                                 <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+                                                <label class="form-check-label" for="inputRememberPassword">Recordar contraseña</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Forgot Password?</a>
+                                                <a class="small" href="./password.html">Olvidaste la contraseña?</a>
                                                 <button class="btn btn-primary" type="submit" >Ingresar</button>
                                             </div>
                                         </form>
-                                    </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -85,5 +82,5 @@
             </div>
             <div id="layoutAuthentication_footer">
 <?php 
-require 'footer.php';
+require 'vistas/footer.php';
 ?>

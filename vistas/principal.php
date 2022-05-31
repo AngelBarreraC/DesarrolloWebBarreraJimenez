@@ -2,10 +2,10 @@
     ob_start();
     session_start();
     if(!isset($_SESSION['id'])){ //Este nos sirve paera que al momento de cerrar sesion y querer regresar te mande a login
-        header("location: index.php");
+        header("location: ../index.php");
     }else{
         $nombre=$_SESSION['nombre'];
-        require 'header.php';
+        require './header.php';
 ?>
             <div id="layoutSidenav_content">
                 <main>
@@ -61,7 +61,7 @@
                 </main>
 <?php
    }
-   require 'footer.php';
+   require './footer.php';
    ob_end_flush();
 
 ?>

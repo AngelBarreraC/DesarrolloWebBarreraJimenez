@@ -16,14 +16,16 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Sistema de Inventario</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm    /simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="../public/css/styles.css" rel="stylesheet" />
+        
+        <link rel="stylesheet" href="../public/css/font-awesome.min.css">
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">SISTEMA TLAPALERIA</a>
+            <a class="navbar-brand ps-3" href="../index.php">SISTEMA TLAPALERIA</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Buscar-->
@@ -41,7 +43,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Configuracion</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="logout.php">Cerrar sesión</a></li>
+                        <li><a class="dropdown-item" href="./logout.php">Cerrar sesión</a></li>
                     </ul>
                 </li>
             </ul>
@@ -52,7 +54,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Menu</div>
-                            <a class="nav-link " href="principal.php">
+                            <a class="nav-link " href="./principal.php">
                                 <div class="sb-nav-link-icon"><i class="fa  fa-dashboard (alias)"></i></div>
                                 Escritorio
                             </a>
@@ -63,8 +65,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="articulo.php">Articulos</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Categorias</a>
+                                    <a class="nav-link" href="./articulo.php">Articulos</a>
+                                    <a class="nav-link" href="../layout-sidenav-light.html">Categorias</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -89,7 +91,7 @@
                                     <a class="nav-link" href="#" > Provedores</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="tables.html" data-bs-toggle="collapse" data-bs-target="#collapseParm" aria-expanded="false" aria-controls="collapseParm">
+                            <a class="nav-link collapsed" href="../tables.html" data-bs-toggle="collapse" data-bs-target="#collapseParm" aria-expanded="false" aria-controls="collapseParm">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Acceso
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
