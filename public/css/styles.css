@@ -7823,7 +7823,7 @@ textarea.form-control-lg {
 
 .bg-primary {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-gray), var(--bs-bg-opacity)) !important;
 }
 
 .bg-secondary {
@@ -7853,7 +7853,7 @@ textarea.form-control-lg {
 
 .bg-light {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  background-color: rgba(var(--bs-secondary), var(--bs-bg-opacity)) !important;
 }
 
 .bg-dark {
