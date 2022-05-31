@@ -7822,8 +7822,8 @@ textarea.form-control-lg {
 }
 
 .bg-primary {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-gray), var(--bs-bg-opacity)) !important;
+  --bs-bg-opacity: 2;
+  background-color: rgba(var(--bs-secondary), var(--bs-bg-opacity)) !important;
 }
 
 .bg-secondary {
