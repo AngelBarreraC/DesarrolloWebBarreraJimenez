@@ -11,16 +11,12 @@ require 'header.php';
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                    <h1 class="mt-4">Articulos
+                    <h1 class="mt-4">Articulo
                         <button class="btn btn-success" onclick="mostrarform(true)" id="btnagregar">
-                            <i class="fa fa-plus-circle"></i>Agregar</button> <a target="_blank" href="#">
+                            <i class="fa fa-plus-circle"></i>Agregar</button> 
+                            <a target="_blank" href="../reportes/rptarticulos.php">
                         <button class="btn btn-info">Reporte</button></a>
-                        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                         <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Buscar.." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                        </div>
-                    </form>
+                        
                     </h1>
                     
                     <div class="row">
@@ -99,12 +95,16 @@ require 'header.php';
             </div>
         </main>
     </div>
-
- <script src="js\JsBarcode.all.min.js"></script>
- <script src="js\jquery.PrintArea.js"></script>
- <script src="scripts/articulo.js"></script>
-
- <?php    
+    <?php    
 }
+
 require 'footer.php';
+
+?>
+ <script src="../public/js/JsBarcode.all.min.js"></script>
+ <script src="../public/js/jquery.PrintArea.js"></script>
+ <script src="./scripts/articulo.js"></script>
+
+ <?php
+ob_end_flush();
 ?>

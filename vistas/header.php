@@ -19,7 +19,16 @@
         <link href="https://cdn.jsdelivr.net/npm    /simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="../public/css/styles.css" rel="stylesheet" />
         
+        <!-- Font Awesome -->
         <link rel="stylesheet" href="../public/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../public/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="../public/css/_all-skins.min.css">
+
+        <!-- DATATABLES-->
+        <link rel="stylesheet" href="../public/datatables/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="../public/datatables/buttons.dataTables.min.css">
+        <link rel="stylesheet" href="../public/datatables/responsive.dataTables.min.css">
+        <link rel="stylesheet" href="../public/css/bootstrap-select.min.css">
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
