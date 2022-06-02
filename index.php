@@ -6,7 +6,7 @@
        $usuario=$_POST['usuario'];
        $password=$_POST['password'];
 
-       $sql = "SELECT id, password, nombre, tipo_usuario from usuarios where usuario='$usuario'";
+       $sql = "SELECT id_empleado,password, nombre, id_tipo_empleado from empleado where id_empleado='$usuario'";
        //verificar USUARIO    //Hace consulta
        $resultado=$mysqli->query($sql);
        $num=$resultado->num_rows;
@@ -16,9 +16,9 @@
            //Comprobar password
            if($password_db==$password){
                //INICIAR SESION
-               $_SESSION['id']=$row['id'];
+               $_SESSION['id']=$row['id_empleado'];
                $_SESSION['nombre']=$row['nombre'];
-               $_SESSION['tipo_usuario']=$row['tipo_usuario'];
+               $_SESSION['tipo_usuario']=$row['id_tipo_empleado'];
 
                header("Location: vistas/principal.php");
 
@@ -57,11 +57,11 @@
                                     <div class="card-body">
                                         <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>"> <!--Esto es para que el formulario se vuelva a cargar-->
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" name="usuario"type="text" placeholder="Usuario" />
+                                                <input class="form-control" id="usser" name="usuario"type="text" placeholder="Usuario" />
                                                 <label for="inputEmail">Usuario</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Password" />
+                                                <input class="form-control" id="pass" name="password" type="password" placeholder="Password" />
                                                 <label for="inputPassword">Contraseña</label>
                                             </div>
                                             <div class="form-check mb-3">
@@ -69,8 +69,8 @@
                                                 <label class="form-check-label" for="inputRememberPassword">Recordar contraseña</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="./password.html">Olvidaste la contraseña?</a>
-                                                <button class="btn btn-primary" type="submit" >Ingresar</button>
+                                                <a class="small" href="./password.php">Olvidaste la contraseña?</a>
+                                                <button class="btn btn-primary" type="submit" onclick="setLogin();" >Ingresar</button>
                                             </div>
                                         </form>
                                     </div>

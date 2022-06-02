@@ -6,56 +6,54 @@
     }else{
         $nombre=$_SESSION['nombre'];
         require './header.php';
+        require '../global/conexion.php';
+        $pys="SELECT * FROM productoserver";
 ?>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Escritorio</h1>
+                        <h1 class="mt-4">PRODUCTOS Y SERVICIOS</h1>
                         <tr></tr>
                         <tr></tr>
-                        <div class="row">
-                            <div class="col-xl-6 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">
-                                        <h4> <strong>$</strong></h4>
-                                        <p>Compras</p>
-                                    </div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Compras</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>    
-                            </div>
-                            <div class="col-xl-6 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body"><h4> <strong>$</strong></h4>
-                                        <p>Ventas</p></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ventas</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Compras los ultimos 10 dias
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Ventas los ultimos 10 dias
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
+                        <div class="panel-body table-responsive">
+                            <table class="table table-striped table-bordered table-condensed table-hover">
+                                <thead>
+                                    <th>CLAVE</th>
+                                    <th>CLAVE SAT</th>
+                                    <th>DESCRIPCION</th>
+                                    <th>LINEA</th>
+                                    <th>MODELO</th>
+                                    <th>TALLA</th>
+                                    <th>COLOR</th>
+                                    <th>EXISTENCIA</th>
+                                </thead>
+                                <tbody>
+                                <?php $resultado=mysqli_query($mysqli,$pys);
+                                    while($row=mysqli_fetch_assoc($resultado)){?>
+                                        <th><?php echo $row["clave"]?></th>
+                                        <th><?php echo $row["clave_sat"]?></th>
+                                        <th><?php echo $row["descripcion"]?></th>
+                                        <th><?php echo $row["linea"]?></th>
+                                        <th><?php echo $row["modelo"]?></th>
+                                        <th><?php echo $row["talla"]?></th>
+                                        <th><?php echo $row["color"]?></th>
+                                        <th><?php echo $row["existencia"]?></th>
+                                        <tr></tr>
+                            <?php
+                            } mysqli_free_result($resultado);?>
+
+                                </tbody>
+                                <tfoot>
+                                    <th>CLAVE</th>
+                                    <th>CLAVE SAT</th>
+                                    <th>DESCRIPCION</th>
+                                    <th>LINEA</th>
+                                    <th>MODELO</th>
+                                    <th>TALLA</th>
+                                    <th>COLOR</th>
+                                    <th>EXISTENCIA</th>
+                                </tfoot>   
+                            </table>
                         </div>
                     </div>
                 </main>

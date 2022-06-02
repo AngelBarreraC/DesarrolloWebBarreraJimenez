@@ -34,5 +34,6 @@
         <script src="../public/datatables/datatables.min.js"></script>
         <script src="../public/js/bootbox.min.js"></script>
         <script src="../public/js/bootstrap-select.min.js"></script>
+        <script src="../public/js/validar.js"></script>
     </body>
 </html>

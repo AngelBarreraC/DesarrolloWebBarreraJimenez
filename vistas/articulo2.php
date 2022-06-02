@@ -6,19 +6,19 @@ if (!isset($_SESSION['nombre'])) {
 }else{
 
 require '../global/conexion.php';
-$bodega="SELECT * FROM producto where id_almacen=1";
+$bodega="SELECT * FROM producto where id_almacen=3";
 require 'header.php';
-$usuario=$_SESSION['tipo_usuario'];
 ?>
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Articulo BODEGA
+                <h1 class="mt-4">Articulo TLANEPANTLA
                 <?php if($usuario==1){?>
                     <button class="btn btn-success" onclick="mostrarform(true)" id="btnagregar">
                         <i class="fa fa-plus-circle"></i>   Agregar</button> <?php } ?>
-                    <button class="btn btn-info">Reporte</button></a>       
+                    <button class="btn btn-info">Reporte</button></a> 
                 </h1>
+                    
                 <div class="panel-body table-responsive" id="listadoregistros">
                     <table class="table table-striped table-bordered">
                         <thead>

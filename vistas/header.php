@@ -6,6 +6,9 @@
         header("location: ..index.php");
     }
     $nombre=$_SESSION['nombre'];
+    require '../global/conexion.php';
+
+    $usuario=$_SESSION['tipo_usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -34,14 +37,12 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="../index.php">SISTEMA TLAPALERIA</a>
+            <a class="navbar-brand ps-3" href="#">SISTEMA TLAPALERIA</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Buscar-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Buscar.." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
             <!-- Navbar icono-->
@@ -50,8 +51,6 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" 
                     data-bs-toggle="dropdown" aria-expanded="false"><?php echo $nombre; ?><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Configuracion</a></li>
-                        <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="./logout.php">Cerrar sesión</a></li>
                     </ul>
                 </li>
@@ -62,55 +61,49 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion"> <!--Seccion de opciones de menu-->
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Menu</div>
-                            <a class="nav-link " href="./principal.php">
-                                <div class="sb-nav-link-icon"><i class="fa  fa-dashboard (alias)"></i></div>
-                                Escritorio
-                            </a>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Almacen
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="./articulo.php">Articulos</a>
-                                    <a class="nav-link" href="./categoria.php">Categorias</a>
-                                </nav>
+                            <div class="sb-sidenav-menu-heading">Menu
+                                <a class="nav-link " href="./principal.php">
+                                    <div class="sb-nav-link-icon"><i class="fa  fa-dashboard (alias)"></i></div>
+                                    PRODUCTOS Y SERVICIOS
+                                </a>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                        Almacen
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="./articulo.php">BODEGA</a>
+                                        <a class="nav-link" href="./articulo2.php">TLANEPANTLA</a>
+                                    </nav>
+                                </div>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Compras
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="#" > Ingresos</a>
-                                    <a class="nav-link" href="#" > Provedores</a>
-                                </nav>
+                            <?php if($usuario==1){?>
+                            <div class="sb-sidenav-menu-heading">Controles
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                        Compras
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                        <a class="nav-link" href="./ingreso.php" > Ingresos</a>
+                                        <a class="nav-link" href="./proveedor.php" > Provedores</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="../tables.html" data-bs-toggle="collapse" data-bs-target="#collapseParm" aria-expanded="false" aria-controls="collapseParm">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                        Acceso
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseParm" aria-labelledby="headingFour" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav" id="sidenavAccordionParm">
+                                        <a class="nav-link" href="./usuario.php" > Usuarios</a>
+                                        <a class="nav-link" href="./permisos.php" > Permisos</a>
+                                    </nav>
+                                </div>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePacks" aria-expanded="false" aria-controls="collapsePacks">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Ventas
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePacks" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav" id="sidenavAccordionPacks">
-                                    <a class="nav-link" href="#" > Ingresos</a>
-                                    <a class="nav-link" href="#" > Provedores</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="../tables.html" data-bs-toggle="collapse" data-bs-target="#collapseParm" aria-expanded="false" aria-controls="collapseParm">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Acceso
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseParm" aria-labelledby="headingFour" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav" id="sidenavAccordionParm">
-                                    <a class="nav-link" href="#" > Usuarios</a>
-                                    <a class="nav-link" href="#" > Permisos</a>
-                                </nav>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
